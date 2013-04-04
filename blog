@@ -1,0 +1,73 @@
+My friend Simon Holgate of <a
+href="http://sealevelresearch.com/">Sea Level Research</a> has recently
+"cursed" me by introducing me to tides and sea-level data. Now
+I'm hooked. Why are tides interesting? When you're trying to
+navigate a super-tanker into the San Francisco Bay and you only
+have few centimetres of clearance, whether the tide is in or out
+could be quite important!
+
+The French port of Brest has the longest historical tidal
+record. The Joint Archive for Sea Level has hourly readings from
+1846. Those of you wanting to follow along at home should get
+the code:
+
+    git clone git://github.com/drj11/sea-level-tool.git
+    cd sea-level-tool
+    virtualenv .
+    pip install -r requirements.txt
+
+After that lot (phew!), you can get the data for Brest by going:
+
+    code/etl 822a
+
+Tide data can be surprisingly complex (the 486 pages of
+[<a href="http://eprints.soton.ac.uk/19157/1/sea-level.pdf">PUGH1987</a>]
+are testimony to that), but in essence we have a time
+series of heights, <var>z</var>. Often even really simple
+analyses can tell us interesting facts about the data.
+
+Consider a straightforward histogram:
+
+The data is a height reading every hour, so the histogram shows
+us the most common (and least common) height values. Clearly
+there are two humps: In other words two heights are more
+commonly observed than all others.
+These are the mean low tide, and the mean
+high tide. The range, the distance between mean low tide and
+mean high tide, is about 2.5 metres. Sea level is measured to
+some particular fixed 0-point, in this case (as is common) a
+point chosen so that it is the lowest sea level (either observed
+or predicted) over some period, so that almost all actual
+observations are positive. You can't tell from the histogram but
+the record for Brest does in fact include a few negative values.
+
+Now look at the histogram for St Helena (where Napoleon was kept
+prisoner):
+
+Notice the change in x-scale. Again showing a mean low tide and
+a mean high tide, but this time the range is about 0.4 metres,
+and the entire record including extremes fits into 1.5 metres.
+St Helena is a rock in the middle of a large ocean, and this
+small range is typical of the oceanic tides. It's the shallow
+waters of a continental shelf, and complex basin dynamics in
+northwest Europe (and Kelvin waves, see
+<a href="http://www.youtube.com/watch?v=uQPpPhxqPxY">Lucy's IgniteLiverpool</a>
+talk for more details) that gives ports like Brest a high tidal
+range.
+
+It is not clear what the 0-point on the St Helena chart is (it's
+clearly not a low low water, and doesn't look like a mean water
+level either), and I have exhausted the budget for researching the
+matter.
+
+In locations like Fremantle instead of 2
+tides a day (semi-diurnal) we get just 1 tide a day (diurnal):
+
+The diurnal tides are produced predominantly by the effect of lunar
+declination. When the moon crosses the equator (twice a nodical month)
+the diurnal tides reduce to nearly zero. This is in contrast to the
+twice-daily tides familiar to our beaches in the UK which while we have
+large (spring) and small (neap) tides, we still get tides whatever time
+of the month it is.  Because of the modulation of the diurnal tide there
+is no "mean low tide" and "mean high tide", tides of all heights are
+produced, and we get a single, skew, hump in the distribution.
