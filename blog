@@ -30,7 +30,8 @@ are testimony to that), but in essence we have a time
 series of heights, <var>z</var>. Often even really simple
 analyses can tell us interesting facts about the data.
 
-As Ian tells us, R is good for visualisations. And it turns out
+As Ian tells us, <a
+href="http://blog.scraperwiki.com/2013/03/27/book-review-r-in-action-by-robert-i-kabacoff/">R is good for visualisations</a>. And it turns out
 it has an installable RSQLite package that can load R dataframes
 from a sqlite file. Also I feel like a grown-up data scientist when
 I use R. The relevant snippet is:
