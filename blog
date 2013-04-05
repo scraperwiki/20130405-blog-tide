@@ -40,7 +40,7 @@ I use R. The relevant snippet of R is:
     db <- dbConnect(dbDriver("SQLite"), dbname='scraperwiki.sqlite', loadable.extensions=TRUE)
     bre <- dbGetQuery(db, "SELECT*FROM obs WHERE jaslid=='h822a' ORDER BY t")
 
-I'm sure you're all aware that the sea-level goes up and down to make
+I'm sure you're all aware that the sea level goes up and down to make
 <var>tides</var> and some tides are bigger than others. Here's a typical
 month at Brest (1999-01):
 
@@ -81,10 +81,11 @@ clearly not a low low water, and doesn't look like a mean water
 level either), and I have exhausted the budget for researching the
 matter.
 
-Tide are a new subject for me, and when I was reading Pugh's book one
+Tides are a new subject for me, and when I was reading Pugh's book one
 of the first surprises was the existence of places that do not get
 two tides a day. An example is Fremantle, Australia, which instead
-of getting 2 tides a day (semi-diurnal) gets just 1 tide a day (diurnal):
+of getting two tides a day (semi-diurnal) gets just one tide a day (diurnal):
+
 
 The diurnal tides are produced predominantly by the effect of lunar
 declination. When the moon crosses the equator (twice a nodical month)
@@ -94,3 +95,6 @@ twice-daily tides which while they exhibit large (spring) and small
 Because of the modulation of the diurnal tide there is no "mean low tide"
 and "mean high tide", tides of all heights are produced, and we get a
 single, skew, hump in the distribution:
+
+
+
