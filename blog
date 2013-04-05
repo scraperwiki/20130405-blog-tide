@@ -37,7 +37,7 @@ I use R. The relevant snippet is:
 
     library(RSQLite)
     db <- dbConnect(dbDriver("SQLite"), dbname='scraperwiki.sqlite', loadable.extensions=TRUE)
-    bre <- dbGetQuery(db, "select*from obs where jaslid=='h822a' order by t")
+    bre <- dbGetQuery(db, "SELECT*FROM obs WHERE jaslid=='h822a' ORDER BY t")
 
 I'm sure you're all aware that the sea-level goes up and down to make
 <var>tides</var> and some tides are bigger than others. Here's a typical
