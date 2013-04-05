@@ -20,13 +20,32 @@ After that lot (phew!), you can get the data for Brest by going:
 
     code/etl 822a
 
+The sea level tool is written in Python and uses our
+<a href="http://github.com/scraperwiki/scraperwiki-python">scraperwiki</a>
+library to store the sea level data in a sqlite database.
+
 Tide data can be surprisingly complex (the 486 pages of
 [<a href="http://eprints.soton.ac.uk/19157/1/sea-level.pdf">PUGH1987</a>]
 are testimony to that), but in essence we have a time
 series of heights, <var>z</var>. Often even really simple
 analyses can tell us interesting facts about the data.
 
-Consider a straightforward histogram:
+As Ian tells us, R is good for visualisations. And it turns out
+it has an installable RSQLite package that can load R dataframes
+from a sqlite file. Also I feel like a grown-up data scientist when
+I use R. The relevant snippet is:
+
+    library(RSQLite)
+    db <- dbConnect(dbDriver("SQLite"), dbname='scraperwiki.sqlite', loadable.extensions=TRUE)
+    bre <- dbGetQuery(db, "select*from obs where jaslid=='h822a' order by t")
+
+I'm sure you're all aware that the sea-level goes up and down to make
+<var>tides</var> and some tides are bigger than others. Here's a typical
+month at Brest (1999-01):
+
+
+There are well over 1500 months of data for Brest. Can we summarise the data?
+A histogram works well:
 
 The data is a height reading every hour, so the histogram shows
 us the most common (and least common) height values. Clearly
