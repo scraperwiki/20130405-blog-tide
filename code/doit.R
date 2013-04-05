@@ -11,13 +11,19 @@ sth <- dbGetQuery(db, "SELECT*FROM obs WHERE jaslid=='h292a' ORDER BY t")
 bre <- dbGetQuery(db, "SELECT*FROM obs WHERE jaslid=='h822a' ORDER BY t")
 
 png('fre-hist.png')
-ggplot(fre) + geom_histogram(aes(x=z), binwidth=50) + coord_flip()
+ggplot(fre) + geom_histogram(aes(x=z), binwidth=50) +
+  coord_flip() + xlab("height (mm)") +
+  ggtitle("Fremantle - hourly sea levels")
 dev.off()
 png('sth-hist.png')
-ggplot(sth) + geom_histogram(aes(x=z), binwidth=50) + coord_flip()
+ggplot(sth) + geom_histogram(aes(x=z), binwidth=50) +
+  coord_flip() + xlab("height (mm)") +
+  ggtitle("St Helena - hourly sea levels")
 dev.off()
 png('bre-hist.png')
-ggplot(bre) + geom_histogram(aes(x=z), binwidth=100) + coord_flip()
+ggplot(bre) + geom_histogram(aes(x=z), binwidth=100) +
+  coord_flip() + xlab("height (mm)") +
+  ggtitle("Brest - hourly sea levels")
 dev.off()
 
 fre$dt <- as.POSIXct(fre[,]$t, format="%Y%m%dT%H%M", tz="GMT")
@@ -32,11 +38,11 @@ sth1M = sth[beg <= sth$dt & sth$dt < end,]
 bre1M = bre[beg <= bre$dt & bre$dt < end,]
 
 png('fre-ts.png', width=480, height=120)
-ggplot(fre1M) + geom_line(aes(x=dt, y=z))
+ggplot(fre1M) + geom_line(aes(x=dt, y=z)) + ylab("height (mm)") + xlab("January 1999")
 dev.off()
 png('sth-ts.png', width=480, height=120)
-ggplot(sth1M) + geom_line(aes(x=dt, y=z))
+ggplot(sth1M) + geom_line(aes(x=dt, y=z)) + ylab("height (mm)") + xlab("January 1999")
 dev.off()
 png('bre-ts.png', width=480, height=120)
-ggplot(bre1M) + geom_line(aes(x=dt, y=z))
+ggplot(bre1M) + geom_line(aes(x=dt, y=z)) + ylab("height (mm)") + xlab("January 1999")
 dev.off()
