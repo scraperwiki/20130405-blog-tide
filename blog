@@ -48,25 +48,26 @@ month at Brest (1999-01):
 There are well over 1500 months of data for Brest. Can we summarise the data?
 A histogram works well:
 
-The data is a height reading every hour, so the histogram shows
-us the most common (and least common) height values. Clearly
-there are two humps: In other words two heights are more
-commonly observed than all others.
-These are the mean low tide, and the mean
-high tide. The range, the distance between mean low tide and
+Remember that this is a histogram of hourly sea level readings.
+So the two humps show the most frequent sea level heights that
+appear in the hourly series. These are clustered around two
+heights that are more commonly observed than all others.
+These are the <var>mean low tide</var>, and the <var>mean
+high tide</var>.
+The <var>range</var>, the distance between mean low tide and
 mean high tide, is about 2.5 metres. Sea level is measured to
-some particular fixed 0-point, in this case (as is common) a
-point chosen so that it is the lowest sea level (either observed
+some particular fixed 0-point. It is common to pick that point as
+being the lowest sea level (either observed
 or predicted) over some period, so that almost all actual
 observations are positive. You can't tell from the histogram but
 the record for Brest does in fact include a few negative values.
 
-Now look at the histogram for St Helena (where Napoleon was kept
-prisoner):
+Now look at the histogram for St Helena (where the British imprisoned
+Napoleon after his defeat at Waterloo):
 
 Notice the change in x-scale. Again showing a mean low tide and
 a mean high tide, but this time the range is about 0.4 metres,
-and the entire record including extremes fits into 1.5 metres.
+and the entire span of observed heights including extremes fits into 1.5 metres.
 St Helena is a rock in the middle of a large ocean, and this
 small range is typical of the oceanic tides. It's the shallow
 waters of a continental shelf, and complex basin dynamics in
@@ -80,14 +81,16 @@ clearly not a low low water, and doesn't look like a mean water
 level either), and I have exhausted the budget for researching the
 matter.
 
-In locations like Fremantle instead of 2
-tides a day (semi-diurnal) we get just 1 tide a day (diurnal):
+Tide are a new subject for me, and when I was reading Pugh's book one
+of the first surprises was the existence of places that do not get
+two tides a day. An example is Fremantle, Australia, which instead
+of getting 2 tides a day (semi-diurnal) gets just 1 tide a day (diurnal):
 
 The diurnal tides are produced predominantly by the effect of lunar
 declination. When the moon crosses the equator (twice a nodical month)
 the diurnal tides reduce to nearly zero. This is in contrast to the
-twice-daily tides familiar to our beaches in the UK which while we have
-large (spring) and small (neap) tides, we still get tides whatever time
-of the month it is.  Because of the modulation of the diurnal tide there
-is no "mean low tide" and "mean high tide", tides of all heights are
-produced, and we get a single, skew, hump in the distribution.
+twice-daily tides which while they exhibit large (spring) and small
+(neap) tides, we still get tides whatever time of the month it is.
+Because of the modulation of the diurnal tide there is no "mean low tide"
+and "mean high tide", tides of all heights are produced, and we get a
+single, skew, hump in the distribution:
