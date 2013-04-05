@@ -6,9 +6,9 @@ library(ggplot2)
 
 db <- dbConnect(dbDriver("SQLite"), dbname='scraperwiki.sqlite', loadable.extensions=TRUE)
 
-fre <- dbGetQuery(db, "select*from obs where jaslid=='h175a' order by t")
-sth <- dbGetQuery(db, "select*from obs where jaslid=='h292a' order by t")
-bre <- dbGetQuery(db, "select*from obs where jaslid=='h822a' order by t")
+fre <- dbGetQuery(db, "SELECT*FROM obs WHERE jaslid=='h175a' ORDER BY t")
+sth <- dbGetQuery(db, "SELECT*FROM obs WHERE jaslid=='h292a' ORDER BY t")
+bre <- dbGetQuery(db, "SELECT*FROM obs WHERE jaslid=='h822a' ORDER BY t")
 
 png('fre-hist.png')
 ggplot(fre) + geom_histogram(aes(x=z), binwidth=50)
