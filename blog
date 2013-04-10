@@ -2,7 +2,7 @@ My friend Simon Holgate of <a
 href="http://sealevelresearch.com/">Sea Level Research</a> has recently
 "cursed" me by introducing me to tides and sea-level data. Now
 I'm hooked. Why are tides interesting? When you're trying to
-navigate a super-tanker into the San Francisco Bay and you only
+navigate a super-tanker into San Francisco Bay and you only
 have few centimetres of clearance, whether the tide is in or out
 could be quite important!
 
@@ -33,7 +33,7 @@ analyses can tell us interesting facts about the data.
 As Ian tells us, <a
 href="http://blog.scraperwiki.com/2013/03/27/book-review-r-in-action-by-robert-i-kabacoff/">R is good for visualisations</a>. And it turns out
 it has an installable RSQLite package that can load R dataframes
-from a sqlite file. Also I feel like a grown-up data scientist when
+from a sqlite file. And I feel like a grown-up data scientist when
 I use R. The relevant snippet of R is:
 
     library(RSQLite)
@@ -48,24 +48,19 @@ month at Brest (1999-01):
 There are well over 1500 months of data for Brest. Can we summarise the data?
 A histogram works well:
 
-Remember that this is a histogram of hourly sea level readings.
+Remember that this is a histogram of hourly sea level observations.
 So the two humps show the most frequent sea level heights that
 appear in the hourly series. These are clustered around two
 heights that are more commonly observed than all others.
 These are the <var>mean low tide</var>, and the <var>mean
 high tide</var>.
 The <var>range</var>, the distance between mean low tide and
-mean high tide, is about 2.5 metres. Sea level is measured to
-some particular fixed 0-point. It is common to pick that point as
-being the lowest sea level (either observed
-or predicted) over some period, so that almost all actual
-observations are positive. You can't tell from the histogram but
-the record for Brest does in fact include a few negative values.
-
-Now look at the histogram for St Helena (where the British imprisoned
+mean high tide, is about 2.5 metres (big tides, big data!). This
+is a comparitively large range, certainly compared to a site
+like St Helena (where the British imprisoned
 Napoleon after his defeat at Waterloo):
 
-Notice the change in x-scale. Again showing a mean low tide and
+Again showing a mean low tide and
 a mean high tide, but this time the range is about 0.4 metres,
 and the entire span of observed heights including extremes fits into 1.5 metres.
 St Helena is a rock in the middle of a large ocean, and this
@@ -76,6 +71,15 @@ northwest Europe (and Kelvin waves, see
 talk for more details) that gives ports like Brest a high tidal
 range.
 
+Notice that St Helena has some <em>negative</em> sea levels.
+Sea level is measured to a 0-point that is fixed for each
+station but varies from station to station.
+It is common to pick that point as
+being the lowest sea level (either observed
+or predicted) over some period, so that almost all actual
+observations are positive. Brest follows the usual convention,
+almost all the observations are positive (you can't tell from the
+histogram but there are a few negative ones).
 It is not clear what the 0-point on the St Helena chart is (it's
 clearly not a low low water, and doesn't look like a mean water
 level either), and I have exhausted the budget for researching the
