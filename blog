@@ -92,13 +92,23 @@ of getting two tides a day (semi-diurnal) gets just one tide a day (diurnal):
 
 
 The diurnal tides are produced predominantly by the effect of lunar
-declination. When the moon crosses the equator (twice a nodical month)
-the diurnal tides reduce to nearly zero. This is in contrast to the
+declination. When the moon crosses the equator (twice a nodical month),
+its declination is zero, the effect is reduced to zero, and so
+are the diurnal tides. This is in contrast to the
 twice-daily tides which while they exhibit large (spring) and small
 (neap) tides, we still get tides whatever time of the month it is.
 Because of the modulation of the diurnal tide there is no "mean low tide"
 and "mean high tide", tides of all heights are produced, and we get a
-single, skew, hump in the distribution:
+single hump in the distribution:
 
 
+So we've found something interesting about the Fremantle tides
+from the kind of histogram which we probably learnt to do in
+primary school.
 
+This particular investigation started on my data hub on
+ScraperWiki, but was continued using custom code on my laptop.
+In the future, I hope to continue more of the investigation on
+my data hub, using a mixture of tools that are broadly
+applicable (a tool that makes histograms), and tools that are
+more specific (a tidal analysis tool).
