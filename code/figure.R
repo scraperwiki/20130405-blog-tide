@@ -11,19 +11,35 @@ sth <- dbGetQuery(db, "SELECT*FROM obs WHERE jaslid=='h292a' ORDER BY t")
 bre <- dbGetQuery(db, "SELECT*FROM obs WHERE jaslid=='h822a' ORDER BY t")
 
 png('fre-hist.png')
-ggplot(fre) + geom_histogram(aes(x=z), binwidth=50) +
+ggplot(fre) + geom_histogram(aes(x=z,y=..ncount..), binwidth=50) +
   coord_flip() + xlab("height (mm)") +
   ggtitle("Fremantle - hourly sea levels")
 dev.off()
 png('sth-hist.png')
-ggplot(sth) + geom_histogram(aes(x=z), binwidth=50) +
+ggplot(sth) + geom_histogram(aes(x=z,y=..ncount..), binwidth=50) +
   coord_flip() + xlab("height (mm)") +
   ggtitle("St Helena - hourly sea levels")
 dev.off()
 png('bre-hist.png')
-ggplot(bre) + geom_histogram(aes(x=z), binwidth=100) +
+ggplot(bre) + geom_histogram(aes(x=z,y=..ncount..), binwidth=100) +
   coord_flip() + xlab("height (mm)") +
   ggtitle("Brest - hourly sea levels")
+dev.off()
+png('fre3-hist.png')
+ggplot(mapping=aes(x=z,y=..ncount..)) + geom_histogram(data=bre,
+binwidth=100) + geom_histogram(data=sth, fill='purple',
+binwidth=50) + geom_histogram(data=fre, fill='red', binwidth=50) +
+  ggtitle("Brest, St Helena, Fremantle - hourly sea levels") +
+  xlab("height (mm)") + ylab("Normalised count") +
+  coord_flip()
+dev.off()
+png('sth2-hist.png')
+ggplot(mapping=aes(x=z,y=..ncount..)) + geom_histogram(data=bre,
+binwidth=100) + geom_histogram(data=sth, fill='purple',
+binwidth=50) +
+  ggtitle("Brest, St Helena - hourly sea levels") +
+  xlab("height (mm)") + ylab("Normalised count") +
+  coord_flip()
 dev.off()
 
 fre$dt <- as.POSIXct(fre[,]$t, format="%Y%m%dT%H%M", tz="GMT")
