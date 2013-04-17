@@ -10,16 +10,16 @@ fre <- dbGetQuery(db, "SELECT*FROM obs WHERE jaslid=='h175a' ORDER BY t")
 sth <- dbGetQuery(db, "SELECT*FROM obs WHERE jaslid=='h292a' ORDER BY t")
 bre <- dbGetQuery(db, "SELECT*FROM obs WHERE jaslid=='h822a' ORDER BY t")
 
-png('fre-hist.png')
-ggplot(fre) + geom_histogram(aes(x=z,y=..ncount..), binwidth=50) +
-  coord_flip() + xlab("height (mm)") +
-  ggtitle("Fremantle - hourly sea levels")
-dev.off()
-png('sth-hist.png')
-ggplot(sth) + geom_histogram(aes(x=z,y=..ncount..), binwidth=50) +
-  coord_flip() + xlab("height (mm)") +
-  ggtitle("St Helena - hourly sea levels")
-dev.off()
+# png('fre-hist.png')
+# ggplot(fre) + geom_histogram(aes(x=z,y=..ncount..), binwidth=50) +
+#   coord_flip() + xlab("height (mm)") +
+#   ggtitle("Fremantle - hourly sea levels")
+# dev.off()
+# png('sth-hist.png')
+# ggplot(sth) + geom_histogram(aes(x=z,y=..ncount..), binwidth=50) +
+#   coord_flip() + xlab("height (mm)") +
+#   ggtitle("St Helena - hourly sea levels")
+# dev.off()
 png('bre-hist.png')
 ggplot(bre) + geom_histogram(aes(x=z,y=..ncount..), binwidth=100) +
   coord_flip() + xlab("height (mm)") +
@@ -53,12 +53,18 @@ fre1M = fre[beg <= fre$dt & fre$dt < end,]
 sth1M = sth[beg <= sth$dt & sth$dt < end,]
 bre1M = bre[beg <= bre$dt & bre$dt < end,]
 
-png('fre-ts.png', width=480, height=120)
-ggplot(fre1M) + geom_line(aes(x=dt, y=z)) + ylab("height (mm)") + xlab("January 1999")
+png('fre-ts.png', width=480, height=160)
+ggplot(fre1M) + geom_line(aes(x=dt, y=z)) +
+  ylab("height (mm)") + xlab("January 1999") +
+  ggtitle("Fremantle")
 dev.off()
-png('sth-ts.png', width=480, height=120)
-ggplot(sth1M) + geom_line(aes(x=dt, y=z)) + ylab("height (mm)") + xlab("January 1999")
+png('sth-ts.png', width=480, height=160)
+ggplot(sth1M) + geom_line(aes(x=dt, y=z)) +
+  ylab("height (mm)") + xlab("January 1999") +
+  ggtitle("St Helena")
 dev.off()
-png('bre-ts.png', width=480, height=120)
-ggplot(bre1M) + geom_line(aes(x=dt, y=z)) + ylab("height (mm)") + xlab("January 1999")
+png('bre-ts.png', width=480, height=160)
+ggplot(bre1M) + geom_line(aes(x=dt, y=z)) +
+  ylab("height (mm)") + xlab("January 1999") +
+  ggtitle("Brest")
 dev.off()
